@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - PERIPRO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #2d1b4e 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 149, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .signin-container {
+            background: rgba(45, 45, 45, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+        }
+
+        .signin-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .signin-header h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 45px 14px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: rgba(0, 0, 0, 0.4);
+            border-color: #ff9500;
+            box-shadow: 0 0 0 3px rgba(255, 149, 0, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .validation-icon {
+            position: absolute;
+            right: 16px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .form-group input:valid ~ .validation-icon {
+            display: flex;
+        }
+
+        .signin-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #ff9500 0%, #ff6b35 100%);
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+
+        .signin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.3);
+        }
+
+        .signin-btn:active {
+            transform: translateY(0);
+        }
+
+        .links-section {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .forgot-password {
+            display: block;
+            color: #ff9500;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover {
+            color: #ffaa33;
+        }
+
+        .signup-link {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: #ff9500;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .signup-link a:hover {
+            color: #ffaa33;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0 20px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        @media (max-width: 480px) {
+            .signin-container {
+                padding: 30px 25px;
+            }
+
+            .signin-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <button class="close-btn" onclick="window.history.back()">×</button>
+        
+        <div class="signin-header">
+            <h1>Sign In</h1>
+        </div>
+
+        <form id="signinForm">
+            <div class="form-group">
+                <label for="nickname">Nickname</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="nickname" 
+                        name="nickname" 
+                        placeholder="Enter Your Nickname Here"
+                        required
+                        minlength="3"
+                    >
+                    <span class="validation-icon">✓</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="******"
+                        required
+                        minlength="6"
+                    >
+                    <span class="validation-icon">✓</span>
+                </div>
+            </div>
+           <button type="submit"  class="signin-btn">Sign In</button>
+
+            <div class="links-section">
+                <div class="divider"><span>✦</span></div>
+                <a href="#" class="forgot-password">Forgot your password?</a>
+                <div class="divider"><span>✦</span></div>
+                <div class="signup-link">
+                    Don't have an account? <a href="sign-up.html">Sign Up Here</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+   <script>
+    document.getElementById('signinForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        alert('Signing in...');
+
+        window.location.href = "main.html";
+    });
+
+    document.querySelector(".forgot-password").addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Reset password page coming soon!");
+    });
+
+    document.querySelector(".signup-link a").addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "sign-up.html";
+    });
+
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.parentElement.style.transform = 'scale(1.02)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.parentElement.style.transform = 'scale(1)';
+        });
+    });
+</script>
+
+</body>
+</html>
