@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERIPRO - Gaming Peripherals Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .top-banner {
+            background-color: #2a2d3a;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .top-banner a {
+            color: #ff9800;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .top-banner .highlight {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+        
+        .user-actions a {
+            color: white;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ff8c00;
+        }
+
+        nav a.active {
+            color: #fff;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #ff6b35;
+        }
+
+        .products-link {
+            position: relative;
+        }
+
+        .new-badge {
+            background-color: #00c853;
+            color: #000;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            position: absolute;
+            top: -8px;
+            right: -25px;
+            font-weight: bold;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .login-btn {
+            background-color: #ff8c00;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #ffffff;
+        }
+
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: url('https://www.wlmouse.com/cdn/shop/files/huan-mouse-banner.jpg?v=1764643913&width=1984');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            margin: 20px 50px;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 50px;
+        }
+
+        .product-card {
+            background-image: url('https://www.wlmouse.com/cdn/shop/files/skates.jpg?v=1731999442&width=1536');
+            background-size: cover;
+            background-position: center;
+            background-color: #000000;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .product-card2 {
+            background-image: url('https://www.wlmouse.com/cdn/shop/files/grip-tape.jpg?v=1731999148&width=1536');
+            background-size: cover;
+            background-position: center;
+            background-color: #000000;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .product-card2:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-info h3 {
+            color: #000;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .product-info2 h3 {
+            color: #000;
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-left: 25rem;
+        }
+        .shop-btn {
+            background-color: #fff;
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .shop-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .shop-btn2 {
+            background-color: #fff;
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 27rem;
+        }
+        .shop-btn2:hover {
+            background-color: #e0e0e0;
+        }
+
+        .product-image {
+            width: 200px;
+            height: auto;
+        }
+
+            .video-section {
+                margin: 40px 50px;
+                border-radius: 8px;
+                overflow: hidden;
+                position: relative;
+                height: 600px;
+                background-image: url('https://www.wlmouse.com/cdn/shop/files/preview_images/1b7155aff7e340cf83c6d6a7a05df712.thumbnail.0000000000.jpg?v=1751083011&width=1530');
+                background-size: cover;
+                background-position: center;
+            }
+
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 25px solid #000;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        .newsletter {
+            background-color: #000;
+            text-align: center;
+            padding: 60px 50px;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+
+        .subscribe-btn {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #f57c00;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 50px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .footer-contact i {
+            margin-right: 8px;
+        }
+                .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        .checkbox-group a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons i {
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #ff8c00;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 13px;
+        }
+        
+        .privacy-banner {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .privacy-banner h4 {
+            margin-bottom: 10px;
+        }
+
+        .privacy-banner p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .privacy-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .privacy-btn {
+            padding: 8px 20px;
+            border: 1px solid #000;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .privacy-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .privacy-btn.accept {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .privacy-btn.accept:hover {
+            background-color: #333;
+        }
+
+        @media (max-width: 768px) {
+            header, .hero, .product-cards, .video-section, .newsletter, footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .product-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        Join <span class="highlight">PERIPRO</span> Discord community!
+        <a href="#">JOIN NOW</a>
+    </div>
+
+    <header>
+        <div class="logo">
+            <span class="logo-icon">P</span>
+            <span>PERIPRO</span>
+        </div>
+        <nav>
+            <a href="#" class="active">HOME</a>
+            <a href="detail.html">CATEGORIES</a>
+            <a href="software.html">SOFTWARE</a>
+            <a href="products.html" class="products-link">
+                PRODUCTS
+                <span class="new-badge">NEW</span>
+            </a>
+            <a href="privacy.html">PRIVACY</a>
+        </nav>
+        <div class="user-actions">
+            <a href="sign-in.html" class="login-btn">Log In</a>
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="profile.html"><i class="fas fa-user"></i></a>
+            <a href="aboutus.html"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div style="text-align: center; max-width: 800px;">
+                <img src="" alt="" style="width: 100%; max-width: 600px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="product-cards">
+        <div class="product-card">
+            <div class="product-info">
+                <h3>Mouse Skates</h3>
+                <button class="shop-btn">SHOP NOW</button>
+            </div>
+        </div>
+        <div class="product-card2">
+            <div class="product-info2">
+                <h3>Grip Tapes</h3>
+                <button class="shop-btn2">SHOP NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="video-container">
+            <div class="play-button">
+                <div class="play-icon"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Do you want to be among the first to know<br>about sale time?</h2>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter Your Email Here" required>
+            <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon">P</div>
+                    <div class="logo-text">PERIPRO</div>
+                </div>
+                <div class="footer-contact">
+                    <p><strong>Support</strong></p>
+                    <p><i class="fas fa-envelope"></i> support@PeriPro.com</p>
+                    <p><i class="fas fa-envelope"></i> service@PeriPro.com</p>
+                    <p style="margin-top: 20px;"><strong>Media</strong></p>
+                    <p><i class="fas fa-envelope"></i> pr@wimouse.com</p>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">I agree with the <a href="#">Terms & conditions</a></label>
+                </div>
+                <div class="social-icons">
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-discord"></i>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PRODUCT</h3>
+                <ul>
+                    <li><a href="#">Beast Miao</a></li>
+                    <li><a href="#">STRIDER</a></li>
+                    <li><a href="#">VINO</a></li>
+                    <li><a href="#">Sword X</a></li>
+                    <li><a href="#">Beast X Mini Pro</a></li>
+                    <li><a href="#">Beast X Pro</a></li>
+                    <li><a href="#">Beast X Max</a></li>
+                    <li><a href="#">Mousepad</a></li>
+                    <li><a href="#">Keyboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SUPPORT</h3>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Reseller</a></li>
+                    <li><a href="#">Become B2B</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>POLICY</h3>
+                <ul>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            PERIPRO Tech, All Rights Reserved
+        </div>
+    </footer>
+</body>
+</html>

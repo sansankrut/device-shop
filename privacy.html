@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty - PERIPRO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000fe;
+            color: #fff;
+        }
+
+        .top-banner {
+            background-color: #2a2d3a;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .top-banner a{
+            color: #ff9800;
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: 600
+        }
+
+        .top-banner .highlight {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .join-btn {
+            background-color: #00cc66;
+            color: #000;
+            border: none;
+            padding: 4px 12px;
+            margin-left: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        header {
+            background-color: #000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ff8c00;
+        }
+
+        nav a.active {
+            color: #fff;
+        }
+
+        nav a.active::after {   
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #ff6b35;
+        }
+
+        .products-link {
+            position: relative;
+        }
+
+        .new-badge {
+            background-color: #00ff00;
+            color: #000;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            position: absolute;
+            top: -8px;
+            right: -25px;
+            font-weight: bold;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons i {
+            cursor: pointer;
+        }
+
+        .nav-icons a {
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .section p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .update-date {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .warranty-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .warranty-list li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .warranty-list li:before {
+            content: "•";
+            color: #ff8c00;
+            font-weight: bold;
+            position: absolute;
+            left: 5px;
+            font-size: 18px;
+        }
+
+        .email-link {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .faq-section {
+            background-color: #1e1f21;
+            padding: 50px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .faq-section h2 {
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .faq-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .faq-tab {
+            background-color: #ff8c00;
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-tab:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .return-steps {
+            background-color: #1e1f21;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .return-steps h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .return-steps p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .return-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .return-steps ul li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .return-steps ul li:before {
+            content: "•";
+            color: #ff8c00;
+            font-weight: bold;
+            position: absolute;
+            left: 5px;
+            font-size: 18px;
+        }
+
+        .info-box {
+            background-color: #1a1d29;
+            border-left: 4px solid #ff8c00;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info-box p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #aaa;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 50px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .footer-contact i {
+            margin-right: 8px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        .checkbox-group a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons i {
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #ff8c00;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            color: #0e0404;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            header, .container, footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .faq-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .faq-tab {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        Join <span class="highlight">PERIPRO</span> Discord community! 
+        <a href="#">JOIN NOW</a>
+    </div>
+
+    <header>
+        <div class="logo">
+            <span class="logo-icon">P</span>
+            <span>PERIPRO</span>
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="detail.html">CATEGORIES</a>
+            <a href="software.html">SOFTWARE</a>
+            <a href="products.html" class="products-link">
+                PRODUCTS
+                <span class="new-badge">NEW</span>
+            </a>
+            <a href="privacy.html"class="active">PRIVACY</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="profile.html"><i class="fas fa-user"></i></a>
+            <a href=""><i class="   fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Warranty</h1>
+
+        <div class="section">
+            <h2>Limited Warranty Statement</h2>
+            <p class="update-date">Last Updated: August 10, 2025</p>
+            <p>
+                WIMOUSE is committed to providing high-quality mice to our customers. This Limited Warranty Statement outlines 
+                our warranty terms and conditions. Warranty service is only provided to the original end-user customers only.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Warranty Coverage</h2>
+            <p>
+                <span class="highlight">WIMOUSE</span> mice are covered by a <span class="highlight">3-year limited warranty</span> starting from the date of delivery.
+            </p>
+            <p>
+                This warranty <span class="highlight">only covers functional defects</span> caused by manufacturing or material issues.
+            </p>
+            <p>
+                <span class="highlight">Cosmetic issues</span> (e.g., scratches, paints wear, minor discolorations) are <span class="highlight">not covered</span>.
+            </p>
+            <p>
+                To ensure proper analysis, please keep your <span class="highlight">order number</span> or <span class="highlight">purchase confirmation</span>, <span class="highlight">proof of purchase</span>.
+            </p>
+            <p>
+                All warranty claims must be submitted via email to <a href="mailto:support@peripro.com" class="email-link">support@peripro.com</a>
+            </p>
+            <p>Please include the following:</p>
+            <ul class="warranty-list">
+                <li>Your order number</li>
+                <li>A brief description of the issue</li>
+                <li>Photos or videos showing evidence of the issue</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Refund Policy</h2>
+            
+            <h3>Non-Condition Returns</h3>
+            <p>
+                We offer a <span class="highlight">7-day return policy</span>. You have <span class="highlight">7 days</span> to return an item from the date you received it. (worldwide: 
+                15 days return policy applies for orders placed through https://peripro.com that are delivered to addresses within the US, 
+                Canada, Australia, or the UK. Please visit our <a href="#" class="email-link">Returns and Refunds Policy</a> for details.)
+            </p>
+            <p>
+                To be eligible for a return, your item must be unused and in the same condition that you received it. Additionally, it must be 
+                in its original packaging. You also need a receipt or proof of purchase. We cannot accept returns that are not properly 
+                packaged or show signs of use. Items purchased on sale are final sale and are not eligible for returns. Returns are only 
+                responsible for paying the shipping costs for returning your item. Shipping and customs fees are non-refundable. Once 
+                we have received your return and it has been inspected, we will send you an email to notify you.
+            </p>
+
+            <h3>Refunds (if applicable)</h3>
+            <p>We may issue refunds for items returned for the following reasons:</p>
+            <ul class="warranty-list">
+                <li>Items received according to our return policy upon return.</li>
+                <li>Damaged or defective items.</li>
+                <li>Other valid reasons.</li>
+            </ul>
+            <p>
+                If you paid by credit card, once you typically take up <span class="highlight">7-10 working days</span> to process, although this exact time 
+                depends on your credit card issuer, customer's return. If your refund has not been processed after 10 working days, if you 
+                have not received your refund after 10 working days, please check with your credit card company or bank, as it may take 
+                some time for your refund to be officially posted.
+            </p>
+            <p>
+                Please note that the refunded amount may differ slightly from your original payment in your national currency 
+                due to fluctuating currency exchange rates. WIMOUSE is not liable for currency exchange rate differences.
+            </p>
+            <p>
+                Your bank may deduct transaction fees for fully or partially cancelled or refunded orders. WIMOUSE is not 
+                liable for any transaction fees incurred.
+            </p>
+
+            <div class="return-steps">
+                <h3>How to Return</h3>
+                <p>To return your product, you should mail your product to the address listed below:</p>
+                <div class="info-box">
+                    <p>
+                        <strong>Unboxed.live:</strong> Marketplace is a platform to buy and sell from us or contact you 
+                        directly. In this case, the seller themselves will organize the return shipment.
+                    </p>
+                </div>
+                <p>
+                    Note: If you did not receive your order or it was lost in transit or returned, please contact us immediately 
+                    through <a href="mailto:support@peripro.com" class="email-link">support@peripro.com</a> to initiate a 
+                    refund or replacement.
+                </p>
+                <p>
+                    When an order is being returned, you must send the customer confirmation and tracking details. 
+                    You will also have to send the item from <a href="#" class="email-link">authorized resellers</a> for more options.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Have a Question?Look here</h2>
+            <div class="search-box">
+                <input type="text" placeholder="Quick match search">
+            </div>
+            <div class="faq-tabs">
+                <button class="faq-tab">SHOPPING</button>
+                <button class="faq-tab">How can I order?</button>
+                <button class="faq-tab">RETURNS</button>
+                <button class="faq-tab">SUPPORT</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon">P</div>
+                    <div class="logo-text">PERIPRO</div>
+                </div>
+                <div class="footer-contact">
+                    <p><strong>Support</strong></p>
+                    <p><i class="fas fa-envelope"></i> support@PeriPro.com</p>
+                    <p><i class="fas fa-envelope"></i> service@PeriPro.com</p>
+                    <p style="margin-top: 20px;"><strong>Media</strong></p>
+                    <p><i class="fas fa-envelope"></i> pr@wimouse.com</p>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">I agree with the <a href="#">Terms & conditions</a></label>
+                </div>
+                <div class="social-icons">
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-discord"></i>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PRODUCT</h3>
+                <ul>
+                    <li><a href="#">Beast Miao</a></li>
+                    <li><a href="#">STRIDER</a></li>
+                    <li><a href="#">VINO</a></li>
+                    <li><a href="#">Sword X</a></li>
+                    <li><a href="#">Beast X Mini Pro</a></li>
+                    <li><a href="#">Beast X Pro</a></li>
+                    <li><a href="#">Beast X Max</a></li>
+                    <li><a href="#">Mousepad</a></li>
+                    <li><a href="#">Keyboard</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SUPPORT</h3>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Reseller</a></li>
+                    <li><a href="#">Become B2B</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>POLICY</h3>
+                <ul>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            PERIPRO Tech, All Rights Reserved
+        </div>
+    </footer>
+</body>
+</html>
